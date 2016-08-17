@@ -123,6 +123,8 @@ export default function moduleBuild(args, buildConfig = {}, cb) {
       'ES5',
       {copyFiles, outDir: path.resolve('lib'), src},
       merge(buildConfig.babel, buildConfig.babelDev || {}, {
+        // Transpile modules to CommonJS for ES5 users
+        modules: 'commonjs',
         // Don't force ES5 users of the ES5 build to eat a .require
         plugins: [require.resolve('babel-plugin-add-module-exports')],
       }),
@@ -137,10 +139,7 @@ export default function moduleBuild(args, buildConfig = {}, cb) {
     tasks.push((cb) => runBabel(
       'ES6 modules',
       {copyFiles, outDir: path.resolve('es'), src},
-      merge(buildConfig.babel, buildConfig.babelDev || {}, {
-        // Don't transpile modules, for use by ES6 module bundlers
-        modules: false,
-      }),
+      merge(buildConfig.babel, buildConfig.babelDev || {}),
       userConfig.babel,
       cb
     ))
