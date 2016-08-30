@@ -52,6 +52,10 @@
 - Dependencies are no longer bundled. As a result, Babel 6 dependencies will no longer be deduplicated for npm2 users, so an nwb install will be slower and larger - consider upgrading to npm3 or [yarn](https://yarnpkg.com/) if you can.
 - Removed support for deprecated `webpack.plugins` config in `nwb.config.js` - this config must now be moved up into `webpack` instead.
 
+**Added:**
+
+- Added a `reload` option to [Express middleware](https://github.com/insin/nwb/blob/next/docs/Middleware.md#middlewareexpress-options-object) to enable reloading the page if Hot Module Reloading is unsuccessful [[#168](https://github.com/insin/nwb/issues/168)]
+
 **Changed:**
 
 - Handling of`.svg` files has been moved from the `graphics` loader to the new `svg` loader so inlining can be configured separately. This matters if you're using a [sprite system](http://una.im/svg-icons/), as base64 inlining SVGs breaks [fragment identifiers](https://css-tricks.com/svg-fragment-identifiers-work/).
