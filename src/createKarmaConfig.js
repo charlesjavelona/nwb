@@ -191,6 +191,7 @@ export default function createKarmaConfig(buildConfig, {codeCoverage, singleRun}
       },
       resolve: {
         alias: {
+          expect: path.dirname(require.resolve('expect/package')),
           src: path.resolve('src'),
         },
       },
