@@ -358,9 +358,6 @@ export function createPlugins(server, buildConfig = {}, userConfig = {}) {
 
   if (production) {
     plugins.push(new webpack.LoaderOptionsPlugin({minimize: true}))
-    // Temporarily commented out to prevent an error in __webpack_require__
-    // See https://github.com/webpack/webpack/issues/959#issuecomment-237438754
-    // plugins.push(new optimize.DedupePlugin())
     if (userConfig.uglify !== false) {
       plugins.push(
         new optimize.UglifyJsPlugin(merge({
