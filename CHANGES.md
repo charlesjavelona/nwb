@@ -1,3 +1,7 @@
+**Changed:**
+
+* The default build for a React component demo app now supports use of a `demo/public/` directory for static content.
+
 # 0.13.4 / 2016-12-11
 
 **Fixed:**
